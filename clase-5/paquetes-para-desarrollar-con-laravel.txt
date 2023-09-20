@@ -1,0 +1,25 @@
+# Paquetes útiles para el desarrollo con Laravel
+Hay 2 paquetes que les recomiendo instalar en un proyecto de Laravel para hacer la experiencia de desarrollo más agradable.
+
+- barryvdh/laravel-debugbar
+- barryvdh/laravel-ide-helper
+
+Los pueden instalar con el comando:
+
+    composer require barryvdh/laravel-debugbar barryvdh/laravel-ide-helper
+
+## Debugbar
+Es un "wrapper" del paquete DebugBar de php, optimizado para Laravel.
+
+Lo que hace es agregarles una barrita al pie de la página con mucha información sobre los datos que está manejando Laravel en la petición.
+
+También incluye la posibilidad de loguear contenido a su consola de mensajes.
+
+Finalmente, nos permite llevar un historial de las peticiones que se realizaron, para poder analizarlas en cualquier momento.
+Para habilitar esta funcionalidad, necesitan agregar en el [.env]:
+
+    DEBUGBAR_OPEN_STORAGE=true
+
+
+## IDE Helper
+Este paquete incluye comandos de Artisan que generan código o comentarios que ayudan al editor a poder entender mejor nuestro proyecto, y así ofrecernos mejores funcionalidades de autocompletar.

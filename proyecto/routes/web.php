@@ -89,4 +89,7 @@ Route::get('/peliculas/{id}', [\App\Http\Controllers\MoviesController::class, 'v
     // Pedimos que el parámetro id sea un número para que sea aceptable.
     ->whereNumber('id');
 
+Route::get('/peliculas/nueva', [\App\Http\Controllers\MoviesController::class, 'createForm']);
+Route::post('/peliculas/nueva', [\App\Http\Controllers\MoviesController::class, 'createProcess']);
+
 Route::get('/admin/peliculas', [\App\Http\Controllers\AdminMoviesController::class, 'index']);

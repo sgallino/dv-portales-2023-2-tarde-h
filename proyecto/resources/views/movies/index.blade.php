@@ -1,9 +1,20 @@
+<?php
+use Illuminate\Database\Eloquent\Collection;
+use App\Models\Movie;
+
+/** @var Movie[]|Collection $movies */
+
+?>
 @extends('layouts.main')
 
 @section('title', 'Listado de Películas')
 
 @section('content')
-<h1>Listado de Películas</h1>
+<h1 class="mb-3">Listado de Películas</h1>
+
+<div class="mb-3">
+    <a href="{{ url('/peliculas/nueva') }}">Publicar una Nueva Película</a>
+</div>
 
 <table class="table table-bordered table-striped">
     <thead>

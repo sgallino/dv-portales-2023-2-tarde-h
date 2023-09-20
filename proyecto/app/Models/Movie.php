@@ -18,6 +18,32 @@ use Illuminate\Database\Eloquent\Model;
 // Con respecto a la PK, Laravel espera que siempre sea una columna INT llamada "id".
 // Si cualquiera de estas dos convenciones no se cumple, entonces tenemos que aclarárselo a Laravel directamente,
 // como vemos más abajo.
+/**
+ * App\Models\Movie
+ *
+ * @property int $movie_id
+ * @property string $title
+ * @property int $price
+ * @property string $release_date
+ * @property string $synopsis
+ * @property string|null $cover
+ * @property string|null $cover_description
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \Illuminate\Database\Eloquent\Builder|Movie newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Movie newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Movie query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Movie whereCover($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Movie whereCoverDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Movie whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Movie whereMovieId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Movie wherePrice($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Movie whereReleaseDate($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Movie whereSynopsis($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Movie whereTitle($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Movie whereUpdatedAt($value)
+ * @mixin \Eloquent
+ */
 class Movie extends Model
 {
     // use HasFactory;
@@ -27,4 +53,6 @@ class Movie extends Model
 
     // Si queremos personalizar la PK, entonces tenemos que crear la propiedad $primaryKey.
     protected $primaryKey = "movie_id";
+
+    protected $fillable = ['title', 'price', 'release_date', 'synopsis', 'cover', 'cover_description'];
 }
