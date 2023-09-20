@@ -1,0 +1,69 @@
+# Namespaces
+En pocas palabras, los namespaces son equivalentes en php a lo que son los
+directorios/carpetas en el File System.
+
+¿Por qué usamos directorios/carpetas para guardar archivos?
+- Nos permiten ordenar temáticamente los archivos.
+- Nos permiten crear archivos con los nombres que queramos sin importar si 
+existen ya archivos con ese nombre en algún lugar del disco.
+
+Ese último punto es especialmente importante.
+Esa es la principal razón de la existencia de los namespaces, y es el mismo
+problema que buscan resolver.
+
+Tengamos en cuenta que un proyecto de php de objetos puede tener cientos o
+miles de clases.
+De hecho, una instalación fresca de Laravel trae más de 4000 clases.
+
+
+## Definiendo namespaces
+Para definir un namespace, debemos usar la keyword "namespace" seguida del
+nombre que queremos que tenga.
+
+El nombre puede estar compuesto por varios "segmentos", separados con "\".
+
+Por ejemplo:
+
+    namespace Este\Es\Mi\Namespace;
+
+Por convención, los namespaces se escriben igual que las clases usando
+StudlyCase / PascalCase / UpperCamelCase.
+
+Importante: La declaración del namespace debe ser la primer instrucción del
+archivo.
+
+
+## Usando "alias" para los namespaces.
+Los namespaces, como podemos ver, pueden ser bastante extensos.
+Por ejemplo:
+
+    Illuminate\Foundation\Auth\Access\AuthorizesRequests
+
+Estar escribiendo en todo momento los nombres completos, o FQN 
+(Fully-Qualified Name) no es algo divertido de hacer.
+
+Para aliviar el problema, php nos permite definir un "alias" para una clase
+en los archivos. De esa manera, vamos a poder referirnos a clase a través 
+de su alias en vez de su FQN.
+
+Esto se logra con la keyword "use".
+
+Por ejemplo:
+
+    use App\Database\MySQL\Conexion as MySQL;
+
+Esa instrucción definiría el alias "MySQL" para reemplazar la necesidad de
+escribir el FQN. Noten que el FQN en el use no empieza con "\".
+
+Es importante tener en cuenta que el alias solo aplica al archivo donde
+el use está.
+
+Por supuesto, pueden usar el mismo nombre de la clase para el alias:
+
+    use App\Database\MySQL\Conexion as Conexion;
+
+De hecho, eso es lo más común de hacer. Tan común es, de hecho, que si
+ese es el alias que queremos, php nos permite omitir el "as". Es decir,
+lo anterior lo podríamos simplemente escribir:
+
+    use App\Database\MySQL\Conexion;

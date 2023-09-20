@@ -51,3 +51,5 @@ Route::get('/', [\App\Http\Controllers\HomeController::class, 'index']);
 Route::get('/quienes-somos', [\App\Http\Controllers\HomeController::class, 'about']);
 
 Route::get('/peliculas/listado', [\App\Http\Controllers\MoviesController::class, 'index']);
+
+Route::get('/admin/peliculas', [\App\Http\Controllers\AdminMoviesController::class, 'index']);
