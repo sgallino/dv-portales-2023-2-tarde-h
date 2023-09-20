@@ -54,7 +54,7 @@
             */
             ?>
 
-            @yield('contenido')
+            @yield('content')
         </main>
         <footer class="footer">
             <p>Da Vinci &copy; 2023</p>

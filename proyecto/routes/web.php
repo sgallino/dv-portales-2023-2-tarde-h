@@ -52,4 +52,41 @@ Route::get('/quienes-somos', [\App\Http\Controllers\HomeController::class, 'abou
 
 Route::get('/peliculas/listado', [\App\Http\Controllers\MoviesController::class, 'index']);
 
+/* 
+Vamos a agregar ahora la ruta para ver el detalle de la película.
+En Programación 2, probablemente hicieron uso del query string para pasar el id del registro. Algo como:
+
+    peliculas-ver.php?id=2
+
+Eso funciona, pero no es ideal desde el punto de vista de SEO. A los buscadores les gusta que cada página que tiene un contenido diferente tenga una URL única.
+Lo que es mucho mejor, entonces, es que la URL sea algo así:
+
+    peliculas/2
+
+Donde 2 sería el id de la película.
+Eso es muchísimo mejor para SEO, y es una URL mucho más amigable.
+El tema, es que podemos tener miles y miles de películas, y no nos sirve la idea de crear una ruta por cada película. 
+Así que necesitamos que ese segmento de la URL, donde ponemos el id, sea "dinámico". 
+Ahí es donde entran los parámetros de ruta (route parameters).
+Si queremos que un segmento de la URL sea dinámico, es decir, que acepte cualquier valor que le pasen, debemos indicarlo como un parámetro de ruta usando la sintaxis 
+    
+    {nombre}
+
+Donde "nombre" puede ser cualquier string que quieran que sea válido como nombre de variable.
+
+Por ejemplo, si ponemos una ruta:
+
+    Route::get('/peliculas/{id}', ...);
+
+Esa ruta va a matchear cualquiera de los siguientes ejemplos:
+
+    /peliculas/1
+    /peliculas/20
+    /peliculas/hola
+    /peliculas/saraza
+*/
+Route::get('/peliculas/{id}', [\App\Http\Controllers\MoviesController::class, 'view'])
+    // Pedimos que el parámetro id sea un número para que sea aceptable.
+    ->whereNumber('id');
+
 Route::get('/admin/peliculas', [\App\Http\Controllers\AdminMoviesController::class, 'index']);

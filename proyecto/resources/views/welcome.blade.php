@@ -48,6 +48,6 @@ Podemos hacer:
 ?>
 @section('title', 'Página Principal')
 
-@section('contenido')
+@section('content')
 <h1>Página Principal</h1>
 @endsection

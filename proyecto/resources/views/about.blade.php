@@ -2,6 +2,6 @@
 
 @section('title', 'Quiénes Somos')
 
-@section('contenido')
+@section('content')
 <h1>Quiénes Somos</h1>
 @endsection
